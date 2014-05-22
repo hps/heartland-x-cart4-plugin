@@ -1,0 +1,27 @@
+****************
+* Installation *
+****************
+
+************
+* Database *
+************
+
+Insert lines below using your mySQL Client (phpMyAdmin, Mysql Workbench, etc.)
+
+
+**********
+* Upload *
+**********
+Please upload all the files in the respective directories.
+
+Step to installation
+
+1) Go to X-Cart Admin, choose settings->payment method
+2) Select 'SecureSubmit payment method' from the 'payment gateway' drop down lists then click "Add".
+
+******************
+* Admin settings *
+******************
+
+1) Select 'SecureSubmit payment method' to configure.
+2) Set your Public Key and Secret Key.
