@@ -8,12 +8,12 @@ x_load('crypt','http');
 
 require_once($xcart_dir . "/payment/includes/Hps.php");
 
-$config = new HpsConfiguration();
-$config->secretApiKey = $module_params['param02'];
-$config->versionNumber = '1514';
-$config->developerId = '002914';
+$hpsconfig = new HpsConfiguration();
+$hpsconfig->secretApiKey = $module_params['param02'];
+$hpsconfig->versionNumber = '1514';
+$hpsconfig->developerId = '002914';
 
-$chargeService = new HpsChargeService($config);
+$chargeService = new HpsChargeService($hpsconfig);
 
 $hpsaddress = new HpsAddress();
 $hpsaddress->address = $userinfo['b_address'];
