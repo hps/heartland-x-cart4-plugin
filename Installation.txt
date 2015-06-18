@@ -2,6 +2,13 @@
 * Installation *
 ****************
 
+insert into xcart_ccprocessors (module_name,type,processor,template,disable_ccinfo,background,testmode,is_check,is_refund,c_template,paymentid,cmpi,use_preauth,preauth_expire,has_preauth,capture_min_limit,capture_max_limit)
+values ("HPS SecureSubmit","C","cc_securesubmit.php","cc_securesubmit.tpl","N","N","N","","","customer/main/cc_securesubmit.tpl",0,"","",0,"","0%","0%");
+
+INSERT INTO xcart_languages VALUES ('en','lbl_cc_securesubmit_secret_key','Secret Key','Labels');
+INSERT INTO xcart_languages VALUES ('en','lbl_cc_securesubmit_public_key','Public Key','Labels');
+INSERT INTO xcart_languages VALUES ('en','lbl_cc_securesubmit_payment_mode','Transaction Method','Labels');
+
 ************
 * Database *
 ************
