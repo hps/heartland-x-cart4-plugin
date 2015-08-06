@@ -25,6 +25,46 @@
 </td>
 </tr>
 
+<tr>
+<td colspan="2">
+Advanced Fraud Settings
+</td>
+</tr>
+
+<tr>
+<td>Enable Advanced Fraud</td>
+<td>
+<select name="param04">
+<option value="yes"{if $module_data.param04 eq "yes"} selected="selected"{/if}>Yes</option>
+<option value="no"{if $module_data.param04 eq "no"} selected="selected"{/if}>No</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Email Store Owner of Suspected Fraud</td>
+<td>
+<select name="param05">
+<option value="yes"{if $module_data.param05 eq "yes"} selected="selected"{/if}>Yes</option>
+<option value="no"{if $module_data.param05 eq "no"} selected="selected"{/if}>No</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Notification Email Address</td>
+<td>
+<td><input type="text" name="param06" size="32" value="{$module_data.param06|escape}" /></td>
+</td>
+</tr>
+
+<tr>
+<td>Fraud Text</td>
+<td>
+<td><input type="text" name="param07" size="32" value="{$module_data.param07|escape}" /></td>
+</td>
+</tr>
+
 </table>
 <br /><br />
 <input type="submit" value="{$lng.lbl_update|strip_tags:false|escape}" />
