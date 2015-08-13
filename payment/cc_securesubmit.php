@@ -16,7 +16,7 @@ $hpsconfig->secretApiKey = $module_params['param02'];
 $hpsconfig->versionNumber = '1514';
 $hpsconfig->developerId = '002914';
 
-$chargeService = new HpsChargeService($hpsconfig);
+$chargeService = new HpsCreditService($hpsconfig);
 
 $hpsaddress = new HpsAddress();
 $hpsaddress->address = $userinfo['b_address'];
