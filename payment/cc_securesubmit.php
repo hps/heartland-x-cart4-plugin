@@ -2,9 +2,12 @@
 
 $securesubmit_token = $_POST["securesubmit_token"];
 
-if (!defined('XCART_START')) { header("Location: ../"); die("Access denied"); }
+if (!defined('XCART_START')) {
+    header("Location: ../");
+    die("Access denied");
+}
 
-x_load('crypt','http');
+x_load('crypt', 'http');
 
 require_once($xcart_dir . "/payment/includes/Hps.php");
 
@@ -28,33 +31,34 @@ $cardHolder->lastName = $bill_lastname;
 $cardHolder->phone = preg_replace('/[^0-9]/', '', $userinfo['phone']);
 $cardHolder->emailAddress = $userinfo['email'];
 $cardHolder->address = $hpsaddress;
-    
+
 $hpstoken = new HpsTokenData();
 $hpstoken->tokenValue = $securesubmit_token;
-	
+
 try {
-	if ($module_params['param03'] == 'authorize') {
+    if ($module_params['param03'] == 'authorize') {
         $response = $chargeService->authorize(
             $cart['total_cost'],
             "usd",
             $hpstoken,
             $cardHolder,
             false,
-            null);
-	} else {
+            null
+        );
+    } else {
         $response = $chargeService->charge(
             $cart['total_cost'],
             "usd",
             $hpstoken,
             $cardHolder,
             false,
-            null);
-	}
-	
-	$bill_output['code'] = 1;
-	$bill_output['billmes'] = " Transaction Code: " . $response->transactionId;
+            null
+        );
+    }
+
+    $bill_output['code'] = 1;
+    $bill_output['billmes'] = " Transaction Code: " . $response->transactionId;
 } catch (Exception $e) {
-	$bill_output['code'] = 2;
-	$bill_output['billmes'] = $e->getMessage();
+    $bill_output['code'] = 2;
+    $bill_output['billmes'] = $e->getMessage();
 }
-?>
