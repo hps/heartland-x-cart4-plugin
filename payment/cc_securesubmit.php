@@ -11,7 +11,7 @@ x_load('crypt', 'http');
 
 require_once($xcart_dir . "/payment/includes/Hps.php");
 
-$hpsconfig = new HpsConfiguration();
+$hpsconfig = new HpsServicesConfig();
 $hpsconfig->secretApiKey = $module_params['param02'];
 $hpsconfig->versionNumber = '1514';
 $hpsconfig->developerId = '002914';
@@ -59,7 +59,7 @@ try {
     $bill_output['code'] = 1;
     $bill_output['billmes'] = " Transaction Code: " . $response->transactionId;
 } catch (HpsException $e) { // order failed
-    if ($e->getCode() == 27) { // order was fraud
+    if ($e->getCode() == HpsExceptionCodes::POSSIBLE_FRAUD_DETECTED) { // order was fraud
         if ($module_params['param04'] == 'yes') { // customer enabled advanced fraud
             if ($module_params['param05'] == 'yes') {
                 HpsSendEmail(
