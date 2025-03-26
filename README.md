@@ -1,3 +1,5 @@
+# ** This repository is no longer maintained! **
+
 ## SecureSubmit X-Cart 4.x Payment Gateway
 
 This extension allows X-Cart 4.x to use the Heartland Payment Systems Gateway. All card data is tokenized using Heartland's SecureSubmit product.
